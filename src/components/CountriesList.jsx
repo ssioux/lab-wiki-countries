@@ -36,7 +36,8 @@ function CountriesList() {
       {countryList.map((eachCountry) => {
         return (
         <p key={eachCountry.name.official}>
-            <Link to={`/country/${eachCountry.alpha3Code}`}>{eachCountry.name.official}</Link>
+            <Link to={`/country/${eachCountry.alpha3Code}`}>{eachCountry.name.official}  </Link>
+            <img src={`https://flagpedia.net/data/flags/icon/72x54/${eachCountry.alpha2Code.toLowerCase()}.png`} width="20px" alt="" />
         </p>
         )
       })}
