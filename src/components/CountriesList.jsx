@@ -1,14 +1,33 @@
 import countries from '../countries.json';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 
+import axios from "axios"
+
+// with Api
 function CountriesList() {
-    const [countryList, setCountryList] = useState(countries)
+  
+    const [countryList, setCountryList] = useState(null)
+    const [isAxioning, setIsAxioning] = useState(true)
 
-    useEffect(()=>{
 
-
+  useEffect(() => {
+     setIsAxioning(true)
+    axios.get('https://ih-countries-api.herokuapp.com/countries')
+    .then((response)=> {
+      console.log(response)
+      setCountryList(response.data)
+      setIsAxioning(false)
+    }).catch((error)=>{
+      console.log(error)
     })
+  }, [])
+  
+  if(isAxioning === true){
+    return <h3>... buscando</h3>
+  }
+    
+    
 
   return (
     

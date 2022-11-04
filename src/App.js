@@ -13,7 +13,6 @@ function App() {
       <div id="main-container">
       <CountriesList />
         <Routes>
-          {/* <Route path="/" element={<CountriesList />} /> */}
           <Route path="/country/:alphacode" element={<CountryDetails />} />
         </Routes>
       </div>
